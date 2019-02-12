@@ -1,11 +1,14 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Button } from "react-native";
 
 class Auth extends React.Component {
+  login = () => {};
+
   render() {
     return (
       <View style={styles.container}>
         <Text>Auth Screen</Text>
+        <Button title="Login" onPress={this.login} />
       </View>
     );
   }

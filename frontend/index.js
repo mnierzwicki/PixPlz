@@ -3,8 +3,8 @@ import { Navigation } from "react-native-navigation";
 import { Provider } from "react-redux";
 
 import App from "./App";
-import Auth from "./src/screens/Auth";
 import configStore from "./src/store/config";
+import { registerScreens } from "./src/screens/screens";
 
 const store = configStore();
 
@@ -14,14 +14,14 @@ const RNRedux = () => (
   </Provider>
 );
 
-Navigation.registerComponent(`pixplz.Auth`, () => Auth);
-Navigation.registerComponent(`pixplz.App`, () => RNRedux);
+registerScreens();
+Navigation.registerComponent(`App`, () => RNRedux);
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
     root: {
       component: {
-        name: "pixplz.Auth"
+        name: "Loading"
       }
     }
   });
