@@ -16,6 +16,27 @@ class Home extends React.Component {
     };
   }
 
+  constructor(props) {
+    super(props);
+    Navigation.events().bindComponent(this);
+  }
+
+  navigationButtonPressed({ buttonId }) {
+    if (buttonId === "settingsButton") {
+      Navigation.push(this.props.componentId, {
+        component: {
+          name: "Settings"
+        }
+      });
+    } else {
+      Navigation.push(this.props.componentId, {
+        component: {
+          name: "Camera"
+        }
+      });
+    }
+  }
+
   logout = async () => {
     try {
       await AsyncStorage.removeItem(USER_KEY);
@@ -28,7 +49,7 @@ class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Hello from Home screen!</Text>
+        <Text>Home screen</Text>
         <Button onPress={this.logout} title="Sign Out" />
         <Button
           onPress={() => {

@@ -15,7 +15,7 @@ const RNRedux = () => (
 );
 
 registerScreens();
-Navigation.registerComponent(`App`, () => RNRedux);
+// Navigation.registerComponent(`App`, () => RNRedux);
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
